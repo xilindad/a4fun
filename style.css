@@ -1,0 +1,90 @@
+/* style.css */
+/* Make the target full screen */
+
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('image/background.png') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Behind the target */
+}
+
+
+/* Centered target overlay */
+#target {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url('image/target4.png') no-repeat center center;
+    background-size: contain; /* Adjust size as necessary */
+    z-index: 2; /* Above the background */
+    /* Set a specific size for your target image */
+    width: 70%; /* Example size, adjust as needed */
+    height: 70%; /* Example size, adjust as needed */
+}
+/* style.css */
+
+/* Bullet hole impact animation */
+@keyframes bullet-impact {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.bullet-hole {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    animation: bullet-impact 0.5s ease-out forwards;
+    /* Center the bullet hole on the click */
+    transform: translate(-50%, -50%);
+}
+
+.score-popup {
+    position: absolute;
+    color: #fff; /* White text */
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+    transform: translate(-50%, -50%);
+    z-index: 20; /* Ensure it's above all other elements */
+}
+
+#total-score, #shot-count {
+    position: fixed;
+    z-index: 10;
+    color: #ff0; /* Bright yellow color for text */
+    font-weight: bold; /* Make the font bold */
+    background: rgba(255, 255, 255, 0.5); /* Light semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2em; /* Larger font size */
+    text-shadow: 2px 2px 4px #000; /* Text shadow for better readability */
+}
+
+#total-score {
+    top: 10px;
+    left: 10px;
+}
+
+#shot-count {
+    top: 10px;
+    right: 10px;
+}
