@@ -2,7 +2,19 @@ $(document).ready(function() {
     var gunshot = document.getElementById('gunshot-sound');
     var totalScore = 0;
     var shotCount = 0;
+    var audioInitialized = false;
 
+    $('#start-button').on('click', function() {
+        if (!audioInitialized) {
+            // Play a silent sound or the actual gunshot sound at zero volume
+            var silentSound = document.getElementById('gunshot-sound');
+            silentSound.volume = 0;
+            silentSound.play();
+            silentSound.volume = 1; // Reset the volume
+            audioInitialized = true;
+        }
+    });
+    
     $('#target').click(function(event) {
         var rect = this.getBoundingClientRect();
         var x = event.clientX - rect.left; // x position within the element.
